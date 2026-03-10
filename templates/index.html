@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>ASL Detector</h1>
+
+    <div class="view-box">
+        <video id="webcam" autoplay playsinline></video>
+        <img id="preview" style="display:none;" />
+        <canvas id="overlay"></canvas>
+    </div>
+
+    <div class="controls">
+        <div class="mode-tabs">
+            <button id="tab-cam" class="tab active" onclick="switchMode('cam')">Camera</button>
+            <button id="tab-upload" class="tab" onclick="switchMode('upload')">Upload</button>
+        </div>
+
+        <div id="cam-controls">
+            <button id="start-btn" onclick="startDetection()">Start</button>
+            <button id="stop-btn" onclick="stopDetection()" disabled>Stop</button>
+        </div>
+
+        <div id="upload-controls" style="display:none;">
+            <input type="file" id="file-input" accept="image/*" onchange="handleUpload(event)" />
+        </div>
+
+        <div class="info-row">
+            <span id="status">Camera off</span>
+            <span id="fps"></span>
+        </div>
+    </div>
+
+    <div id="detected-letters"></div>
+
+    <!-- Word Builder -->
+    <div class="word-builder">
+        <div class="word-display" id="word-display">_</div>
+        <div class="word-controls">
+            <button onclick="addLetter()">Add Letter</button>
+            <button onclick="deleteLetter()">Delete</button>
+            <button onclick="addSpace()">Space</button>
+            <button onclick="clearWord()">Clear</button>
+        </div>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

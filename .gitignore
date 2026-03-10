@@ -1,0 +1,10 @@
+data/
+data_yolo/
+train/Sign_Language.ipynb
+train/yolo_runs/
+train/yolo26n.pt
+train/yolo26n_best.pt
+train/yolov8s.pt
+.env
+__pycache__/
+*.pyc
